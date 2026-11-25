@@ -89,6 +89,9 @@ def answer_of(q):
 
 
 def prompt_of(q):
+    # 設問文を問題ごとに持つ問題（敬意の方向・動作主など）はそれを優先する（iOS版と同じ）
+    if q.get("promptText"):
+        return q["promptText"]
     s = style_of(q)
     t = display_target(q)
     if s == "identification":
